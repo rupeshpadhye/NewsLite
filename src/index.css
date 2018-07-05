@@ -103,13 +103,26 @@ nav {
 
 /*-- nav end  --*/
 
-.news-container {
+.trending-container {
  overflow-y: auto;
  height: -moz-calc(95vh - (50px));
  height: -webkit-calc(95vh- (50px));
  height: calc(95vh - (50px));
 }
 
+.category-container {
+  overflow-x: auto;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
 
 
 /* Loading*/
@@ -119,13 +132,14 @@ nav {
   border-color: #e5e6e9 #dfe0e4 #d0d1d5;
   border-radius: 3px;
   max-width: 100vw;
-  min-height: 20vh;
   display: flex;
   align-content: space-around;
   margin: 3px;
   text-decoration: none;
   text-decoration-color: none;
   color: inherit; 
+  flex: 1 0 60%;
+  height: 20vh;
   
 }
 
@@ -157,8 +171,6 @@ nav {
 .image-placeholder {
   margin: 0.5rem;
   flex: 2;
-  
- 
 }
 .content-placeholder {
   flex: 3;
@@ -181,12 +193,15 @@ nav {
 .news_header {
   font-weight: 400;
   font-family: 'Roboto', sans-serif;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em;
 }
 
 .date-holder {
   font-weight: 200;
   font-size: smaller;
-
 }
 
 .pointer {
@@ -196,13 +211,15 @@ nav {
 .load-more {
   display: flex;
   min-height: 10vh;
+  min-width: 20vw;
   cursor: pointer;
   justify-content: center;
+  align-items: center;
   color: red;
   font-size: small;
 }
 
-::-webkit-scrollbar {
+::-webkit-scrollbar :horizontal :vertical {
   width: 2px;
 }
 

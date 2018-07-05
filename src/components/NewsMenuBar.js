@@ -21,7 +21,6 @@ class NewsMenuBar extends Component {
 
     render() {
         const menuItems = this.state.menuItems;
-        console.log(menuItems);
         return (
             <nav>
             { menuItems.map((item,index) => <Link key={index} to={item.uri} onClick= {()=>this.onMenuClicked(item)} className={item.selected?'active':''}>{item.label}</Link> )}

@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
 import NewsFeederHeader from "./components/NewsFeederHeader";
 import NewsFeedSettingIcon from "./components/NewsFeedSettingIcon";
 import NewsMenuBar from "./components/NewsMenuBar";
-import NewsContainer from "./components/NewsContainer";
 import NewsDetailPage from './pages/NewsDetailPage';
 import NewsByCategoryPage from './pages/NewsByCategoryPage';
 import TrendingNewsPage from './pages/TrendingNewsPage';
@@ -64,11 +63,10 @@ class NewsFeeder extends Component {
                 <NewsFeedSettingIcon  onIconClicked ={this.handleIconClicked} shouldHide={hideMenuButton} icon='settings' ></NewsFeedSettingIcon >
             </NewsFeederHeader>
             <NewsMenuBar items= {newsMode} onMenuSelected={this.handleMenuSelected} />
-             <NewsContainer>
+  
                     <Route  path="/category" component={NewsByCategoryPage}/>
                     <Route exact path="/" component={TrendingNewsPage} />
                       <Route  path="/detail" component={NewsDetailPage}/> 
-            </NewsContainer>
           </section>
           </Router>    
         )

@@ -51,8 +51,10 @@ const withLoadMore = (Component) =>
         }
        return (  
             <React.Fragment>
-              <Component {...this.props}  />
-               {showLoadMore}
+              <Component {...this.props}>
+                   {showLoadMore}
+              </Component>  
+              
             </React.Fragment>
       );
       }

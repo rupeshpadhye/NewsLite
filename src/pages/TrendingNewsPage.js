@@ -6,7 +6,9 @@ import { compose } from 'redux'
 import { fetchNews ,languageChangedTo,countryChangedTo,categoryChangeTo,newsModeChagedTo,incrementPage } from "../reducers/news_feeder";
 import withLoadMore from "../hoc/withLoadMore";
 import withLoadingList from "../hoc/withLoadingList";
-import  NewsList  from "../components/NewsList";
+import isContainer from "../hoc/isContainer";
+import isList from "../hoc/isList";
+import  NewsItem  from "../components/NewsItem";
 
 
 
@@ -59,28 +61,10 @@ class TrendingNewsPage extends Component {
       let domToRender ;
       const { menuVisible,width,menuAnimation,menuDirection,hideMenuButton } = this.state;
       const {loading, error, language, country,news} = this.props;
-      const newsMode = [
-        {
-          label: "Trending",
-          uri: "top-headlines",
-          selected:true
-        },
-        {
-          label: "Category",
-          uri: "everything",
-          selected:false
-        },
-        {
-          label: "Sources",
-          uri: "sources",
-          selected:false
-        },
-      ];
-
-
+   
         return (
           <InfiniteScrollList 
-            placeholders={20} 
+            placeholders={5} 
             loading={loading}
             news={news}
             onNewsClicked={this.handleNewsSelected}
@@ -113,9 +97,11 @@ class TrendingNewsPage extends Component {
 
   
 const InfiniteScrollList = compose(
+  isContainer('trending-container'),
   withLoadMore,
   withLoadingList,
-)(NewsList);
+  isList('vertical'),
+)(NewsItem);
 
 export default connect(
   mapStateToProps ,

@@ -160,7 +160,7 @@ export const buileQuery = (
   uri = defaultUri,
   page= defaultPage,
 ) => {
-  let NEWS_API_URL = `${API_BASE_URL}/${uri}?apiKey=${API_KEY}&language=${language}&page=${page}`;
+  let NEWS_API_URL = `${API_BASE_URL}/${uri}?apiKey=${API_KEY}&language=${language}&page=${page}&pageSize=5`;
   if (country !== "wd") {
     NEWS_API_URL = `${NEWS_API_URL}&country=${country}`;
   }
