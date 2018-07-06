@@ -12,35 +12,30 @@ import  NewsItem  from "../components/NewsItem";
 
 
 
-class TrendingNewsPage extends Component {
+class CategoryContainer extends Component {
     constructor(props) {
       super(props);
-      this.state = {
-        menuVisible: false,
-        menuAnimation: 'overlay',
-        menuDirection: 'left',
-        hideMenuButton:false
-      };
-      //this.handleIconClicked = this.handleIconClicked.bind(this);
     }
    
   
-    handleIconClicked = () => this.setState({ menuVisible: !this.state.menuVisible })
-
-    handleLangaugeChanged = (event,data) => {this.props.languageChangedTo(data.value)}
-
-    handleCountryChanged = (event,data) => { this.props.countryChangedTo(data.value)}
-
-    handleMenuSelected = (item) => {this.props.newsModeChagedTo(item.uri)}
-
+   
     handleLoadNextPage = ()=> { console.log('handleLoadNextPage'); this.props.incrementPage();}
 
-    setSideBarProperies = (menuVisible,menuAnimation,menuDirection) => this.setState({menuVisible,menuAnimation,menuDirection});
-
+    
     componentDidMount() {
       const {language,country,category,uri,page} = this.props;
-      this.props.fetchNews(language,country,"trending",uri,page);
+      this.props.fetchNews(language,country,category,uri,page);
     }
+
+    /*shouldComponentUpdate(nextProps, nextState) {
+        const {news,category} = this.nextProps;
+        const {news:prevNews,category:prevCategory} = this.props;
+        if(news[category].length > prevNews[prevCategory].length) {
+            return true;
+        }
+        return false;
+      
+    }*/
 
     componentDidUpdate(prevProps) {
      const {language:prevLanguage,country:prevCountry,category:prevCategory,uri:prevUri,page:prevPage} = prevProps;
@@ -52,24 +47,27 @@ class TrendingNewsPage extends Component {
         || prevUri !== uri
         || prevPage !== page
       ) {
-         this.props.fetchNews(language,country,"trending",uri,page);
+         this.props.fetchNewsByCategory(language,country,category,uri,page);
       }
     }
 
     
     render() {
       let domToRender ;
-      const { menuVisible,width,menuAnimation,menuDirection,hideMenuButton } = this.state;
       const {loading, error, language, country,news,category} = this.props;
-      const data = news[category];
+      const data = news[this.props.category];
+      console.log('render');
         return (
-          <InfiniteScrollList 
-            placeholders={5} 
-            loading={loading}
-            news={data}
-            onNewsClicked={this.handleNewsSelected}
-            loadNextPage={this.handleLoadNextPage}
-          />
+        <React.Fragment>
+            <div className="category-title">{this.props.title}</div>
+            <InfiniteScrollList 
+                placeholders={5} 
+                loading={loading}
+                news={data}
+                onNewsClicked={this.handleNewsSelected}
+                loadNextPage={this.handleLoadNextPage}
+            /> 
+        </React.Fragment>    
         )
 
     }
@@ -83,7 +81,6 @@ class TrendingNewsPage extends Component {
     country:state.news_feeder.params.country,
     uri:state.news_feeder.params.uri,
     page:state.news_feeder.params.page,
-    category:state.news_feeder.params.category,
   });
 
   const mapDispatchToProps = dispatch => bindActionCreators({
@@ -97,14 +94,14 @@ class TrendingNewsPage extends Component {
 
   
 const InfiniteScrollList = compose(
-  isContainer('container'),
+  isContainer('category-container'),
   withLoadMore,
   withLoadingList,
-  isList('vertical'),
+  isList('horizontal'),
 )(NewsItem);
 
 export default connect(
   mapStateToProps ,
   mapDispatchToProps
-  )(TrendingNewsPage) ;
+  )(CategoryContainer) ;
   

@@ -14,16 +14,19 @@ const LoadingItem = () => (
 );
 
 const LoadingList =(props) =>(
-    [...Array(props.placeholders)].map( (index,pos) => <LoadingItem key={pos} /> )
+    props.loading && [...Array(props.placeholders)].map( (index,pos) => <LoadingItem key={pos} /> )
 );
+
+
 
 const withLoadingList = (Component)=> {
     return class extends React.Component {
         render() {
-           return  <React.Fragment>
-            <Component {...this.props}/>
-            { this.props.loading && <LoadingList placeholders = {this.props.placeholders}/> }
-            </React.Fragment>
+           return  <Component {...this.props}>
+                    <LoadingList placeholders = {this.props.placeholders} loading={this.props.loading}/> 
+                     {this.props.children}
+                   </Component>
+           
         };
     }
   

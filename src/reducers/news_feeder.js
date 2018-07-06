@@ -14,19 +14,28 @@ const API_BASE_URL =  process.env.REACT_APP_BASE_URL;
 const defaultLanguage = "en";
 const defaultUri = "top-headlines";
 const defaultCountry = "wd";
-const defaultCategory = "all";
+const defaultCategory = "trending";
 const defaultPage = 1;
 
 
 const intialState = {
-  news: [],
+  news: {
+    trending:[],
+    business:[],
+    entertainment:[],
+    general:[],
+    health:[],
+    science:[],
+    sports:[],
+    technology:[]
+  },
   totalPages:undefined,
   sources: [],
   loading: true,
   error: undefined,
   params: {
     language: defaultLanguage,
-    category: undefined,
+    category: defaultCategory,
     country: defaultCountry,
     uri: defaultUri,
     page:defaultPage,
@@ -46,11 +55,12 @@ export default (state = intialState, action) => {
         loading: false
       };
     case LOAD_NEWS_DATA:
+      const newsByCategory = [...state.news[action.data.category] ,...action.data.articles ];
       return {
         ...state,
         loading: false,
         error: null,
-        news:  [...state.news ,...action.articles]
+        news: Object.assign({}, state.news, { [action.data.category] : newsByCategory })
       };
     case LOAD_NEWS_FAILURE:
       return {
@@ -128,10 +138,13 @@ export const incrementPage = () => ({
 });
 
 
-export const fetchNewsSuccess = articles => ({
-  type: LOAD_NEWS_DATA,
-  articles
-});
+export const fetchNewsSuccess = (articles,category) => {
+  const data ={articles,category}
+  return ({
+      type: LOAD_NEWS_DATA,
+      data
+      })
+};
 
 export const fetchNewsFailure = error => ({
   type: LOAD_NEWS_FAILURE,
@@ -146,7 +159,7 @@ export const fetchNews = (language, country, category, uri,page) => {
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(fetchNewsSuccess(json.articles));
+        dispatch(fetchNewsSuccess(json.articles,category));
         return json.articles;
       })
       .catch(error => dispatch(fetchNewsFailure(error)));
@@ -164,7 +177,7 @@ export const buileQuery = (
   if (country !== "wd") {
     NEWS_API_URL = `${NEWS_API_URL}&country=${country}`;
   }
-  if (category !== "all") {
+  if (category !== defaultCategory) {
     NEWS_API_URL = `${NEWS_API_URL}&category=${category}`;
   }
 

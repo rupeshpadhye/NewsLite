@@ -103,16 +103,15 @@ nav {
 
 /*-- nav end  --*/
 
-.trending-container {
+.container {
  overflow-y: auto;
  height: -moz-calc(95vh - (50px));
  height: -webkit-calc(95vh- (50px));
  height: calc(95vh - (50px));
+ cursor: pointer;
 }
 
-.category-container {
-  overflow-x: auto;
-}
+
 
 .vertical {
   display: flex;
@@ -219,6 +218,18 @@ nav {
   font-size: small;
 }
 
+.category-container {
+  overflow-x: auto;
+  cursor: pointer;
+}
+
+.category-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: medium;
+  padding: 10px;
+}
+
 ::-webkit-scrollbar :horizontal :vertical {
   width: 2px;
 }
@@ -236,4 +247,8 @@ nav {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
+}
+
+.category-container:last-child {
+  margin-bottom: 10px;
 }

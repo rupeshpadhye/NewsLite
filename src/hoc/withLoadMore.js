@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { findDOMNode } from 'react-dom'
 
 
+const ShowLoadMore = (props) => (props.newsSize >0 && !props.loading && <div onClick={()=>this.props.loadNextPage()} className="load-more" >Load More</div>);
 
 const withLoadMore = (Component) =>
  class withLoadMore extends React.Component {
+   
     constructor(props) {
         super(props);
         this.state = {
@@ -44,18 +46,13 @@ const withLoadMore = (Component) =>
       
       };
   
+      
       render() {
-        let showLoadMore;
-        if (this.props.news.length && !this.props.loading) {
-            showLoadMore= <div onClick={()=>this.props.loadNextPage()} className="load-more" >Load More</div>
-        }
-       return (  
-            <React.Fragment>
+        return ( 
               <Component {...this.props}>
-                   {showLoadMore}
+                    <ShowLoadMore loading= {this.props.loading} 
+                        newsSize={ this.props.news && this.props.news.length} />
               </Component>  
-              
-            </React.Fragment>
       );
       }
 }

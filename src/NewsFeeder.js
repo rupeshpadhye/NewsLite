@@ -48,11 +48,6 @@ class NewsFeeder extends Component {
           uri: "/category",
           selected:false
         },
-        {
-          label: "Sources",
-          uri: "/sources",
-          selected:false
-        },
       ];
 
 
