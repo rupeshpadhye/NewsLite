@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { compose } from 'redux'
@@ -13,13 +12,8 @@ import  NewsItem  from "../components/NewsItem";
 
 
 class CategoryContainer extends Component {
-    constructor(props) {
-      super(props);
-    }
-   
-  
-   
-    handleLoadNextPage = ()=> { console.log('handleLoadNextPage'); this.props.incrementPage();}
+    
+    handleLoadNextPage = ()=> { this.props.incrementPage();}
 
     
     componentDidMount() {
@@ -27,15 +21,15 @@ class CategoryContainer extends Component {
       this.props.fetchNews(language,country,category,uri,page);
     }
 
-    /*shouldComponentUpdate(nextProps, nextState) {
-        const {news,category} = this.nextProps;
-        const {news:prevNews,category:prevCategory} = this.props;
-        if(news[category].length > prevNews[prevCategory].length) {
+    shouldComponentUpdate(nextProps, nextState) {
+        const {news,category} = nextProps;
+        const {news:prevNews,category:prevCategory,loading} = this.props;
+        if( news[category].length !== prevNews[prevCategory].length ||  loading) {
             return true;
-        }
+        } 
         return false;
       
-    }*/
+    }
 
     componentDidUpdate(prevProps) {
      const {language:prevLanguage,country:prevCountry,category:prevCategory,uri:prevUri,page:prevPage} = prevProps;
@@ -47,14 +41,13 @@ class CategoryContainer extends Component {
         || prevUri !== uri
         || prevPage !== page
       ) {
-         this.props.fetchNewsByCategory(language,country,category,uri,page);
+         this.props.fetchNews(language,country,category,uri,page);
       }
     }
 
     
     render() {
-      let domToRender ;
-      const {loading, error, language, country,news,category} = this.props;
+      const {loading,news} = this.props;
       const data = news[this.props.category];
       console.log('render');
         return (

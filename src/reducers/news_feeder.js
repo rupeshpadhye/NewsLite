@@ -8,6 +8,7 @@ export const LOAD_NEWS_DATA = "news/all";
 export const LOAD_NEWS_BY_FILTER = "news/filter";
 export const SET_NEWS_MODE = "news/mode";
 export const SET_NEXT_PAGE = "news/pages";
+export const REHYDRATE ="persist/REHYDRATE";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_BASE_URL =  process.env.REACT_APP_BASE_URL;
@@ -66,8 +67,7 @@ export default (state = intialState, action) => {
       return {
         ...state,
         loading: false,
-        error: action.error,
-        news: []
+        error: action.error || 'Something wen wrong',
       };
     case SET_LANG: {
       return {
@@ -99,6 +99,9 @@ export default (state = intialState, action) => {
         ...state,
         params: Object.assign({}, state.params, { page: ++state.params.page })
       };
+    }
+    case REHYDRATE: {
+      return {...state,persistedState:action.payload};
     }
     default:
       return state;

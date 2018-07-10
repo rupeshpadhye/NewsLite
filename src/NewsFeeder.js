@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { push } from "react-router-redux";
-import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
+import { BrowserRouter as Router, Route  } from 'react-router-dom';
 import NewsFeederHeader from "./components/NewsFeederHeader";
 import NewsFeedSettingIcon from "./components/NewsFeedSettingIcon";
 import NewsMenuBar from "./components/NewsMenuBar";
@@ -17,9 +13,6 @@ class NewsFeeder extends Component {
       super(props);
       this.state = {
         menuVisible: false,
-        menuAnimation: 'overlay',
-        menuDirection: 'left',
-        hideMenuButton:false
       };
       //this.handleIconClicked = this.handleIconClicked.bind(this);
     }
@@ -35,8 +28,6 @@ class NewsFeeder extends Component {
 
 
     render() {
-      let domToRender ;
-      const { menuVisible,width,menuAnimation,menuDirection,hideMenuButton } = this.state;
       const newsMode = [
         {
           label: "Trending",
@@ -55,7 +46,7 @@ class NewsFeeder extends Component {
           <Router>        
           <section className="newsfeeder">
             <NewsFeederHeader header='News'>
-                <NewsFeedSettingIcon  onIconClicked ={this.handleIconClicked} shouldHide={hideMenuButton} icon='settings' ></NewsFeedSettingIcon >
+                <NewsFeedSettingIcon  onIconClicked ={this.handleIconClicked} shouldHide={false} icon='settings' ></NewsFeedSettingIcon >
             </NewsFeederHeader>
             <NewsMenuBar items= {newsMode} onMenuSelected={this.handleMenuSelected} />
   

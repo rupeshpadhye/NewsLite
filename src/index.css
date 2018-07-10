@@ -221,6 +221,7 @@ nav {
 .category-container {
   overflow-x: auto;
   cursor: pointer;
+  overflow-y: hidden;
 }
 
 .category-title {
@@ -251,4 +252,40 @@ nav {
 
 .category-container:last-child {
   margin-bottom: 10px;
+}
+
+.snackbar {
+  position: fixed;
+  background: black;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  z-index: 1; /* Add a z-index if needed */
+  bottom: 0px; 
+}
+
+.snackbar-animation {
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: -30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: -30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: -30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: -30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
 }

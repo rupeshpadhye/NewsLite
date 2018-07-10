@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { findDOMNode } from 'react-dom'
+import React from "react";
 
 
-const ShowLoadMore = (props) => (props.newsSize >0 && !props.loading && <div onClick={()=>this.props.loadNextPage()} className="load-more" >Load More</div>);
+
+const ShowLoadMore = (props) => (props.newsSize >0 && !props.loading && <div onClick={()=> props.loadNextPage()} className="load-more" >Load More</div>);
 
 const withLoadMore = (Component) =>
  class withLoadMore extends React.Component {
@@ -50,8 +50,9 @@ const withLoadMore = (Component) =>
       render() {
         return ( 
               <Component {...this.props}>
-                    <ShowLoadMore loading= {this.props.loading} 
+                    <ShowLoadMore loading= {this.props.loading} loadNextPage= {this.props.loadNextPage}
                         newsSize={ this.props.news && this.props.news.length} />
+                    {this.props.children}    
               </Component>  
       );
       }

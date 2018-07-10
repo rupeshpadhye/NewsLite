@@ -6,6 +6,7 @@ import { compose } from 'redux'
 import { fetchNews ,languageChangedTo,countryChangedTo,categoryChangeTo,newsModeChagedTo,incrementPage } from "../reducers/news_feeder";
 import withLoadMore from "../hoc/withLoadMore";
 import withLoadingList from "../hoc/withLoadingList";
+import withNetworkStateListener from "../hoc/withNetworkStateListener";
 import isContainer from "../hoc/isContainer";
 import isList from "../hoc/isList";
 import  NewsItem  from "../components/NewsItem";
@@ -97,9 +98,10 @@ class TrendingNewsPage extends Component {
 
   
 const InfiniteScrollList = compose(
+  withNetworkStateListener,
   isContainer('container'),
-  withLoadMore,
   withLoadingList,
+  withLoadMore,
   isList('vertical'),
 )(NewsItem);
 
