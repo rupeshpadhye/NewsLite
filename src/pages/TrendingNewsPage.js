@@ -34,7 +34,7 @@ class TrendingNewsPage extends Component {
 
     handleMenuSelected = (item) => {this.props.newsModeChagedTo(item.uri)}
 
-    handleLoadNextPage = ()=> { console.log('handleLoadNextPage'); this.props.incrementPage();}
+    handleLoadNextPage = ()=> { this.props.incrementPage();}
 
     setSideBarProperies = (menuVisible,menuAnimation,menuDirection) => this.setState({menuVisible,menuAnimation,menuDirection});
 

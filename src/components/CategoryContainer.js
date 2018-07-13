@@ -10,7 +10,6 @@ import isList from "../hoc/isList";
 import  NewsItem  from "../components/NewsItem";
 
 
-
 class CategoryContainer extends Component {
     
     handleLoadNextPage = ()=> { this.props.incrementPage();}

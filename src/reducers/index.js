@@ -6,5 +6,5 @@ import snackbar_message from './snackbar_message';
 export default combineReducers({
   news_feeder,
   network_state,
-  snackbar_message
+  snackbar_message,
 });

@@ -98,7 +98,22 @@ nav {
 
   .active  {
     border-bottom: 2px solid red;
+    background-position: center;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s;
   }
+
+
+
+.active:hover {
+  background: #fff radial-gradient(circle, transparent 1%, #ddd 1%) center/15000%;
+}
+
+.active:active {
+  background-color: #eee;
+  background-size: 100%;
+  transition:  cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+}
+
 
 
 /*-- nav end  --*/
@@ -109,6 +124,7 @@ nav {
  height: -webkit-calc(95vh- (50px));
  height: calc(95vh - (50px));
  cursor: pointer;
+ -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -222,6 +238,7 @@ nav {
   overflow-x: auto;
   cursor: pointer;
   overflow-y: hidden;
+  min-height: 150px;
 }
 
 .category-title {
@@ -288,4 +305,16 @@ nav {
 @keyframes fadeout {
   from {bottom: -30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
+}
+
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
 }

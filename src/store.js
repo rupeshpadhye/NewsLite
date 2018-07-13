@@ -15,7 +15,7 @@ const middleware = [thunk];
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['network_state','snackbar_message'] 
+    blacklist: ['network_state','snackbar_message','menu_bar'] 
   }
   
   const persistedReducer = persistReducer(persistConfig, rootReducer)

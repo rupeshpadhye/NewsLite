@@ -9,7 +9,7 @@ const CategoryList = () => categories.map((category,index) => <CategoryContainer
 
 
 const NewsByCategoryPage = compose(
-  isContainer('container'),
+  isContainer('container')
 )(CategoryList)
 
 export default NewsByCategoryPage;

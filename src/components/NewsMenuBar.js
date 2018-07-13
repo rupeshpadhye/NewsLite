@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class NewsMenuBar extends Component {
     constructor(props) {
@@ -23,7 +23,7 @@ class NewsMenuBar extends Component {
         const menuItems = this.state.menuItems;
         return (
             <nav>
-            { menuItems.map((item,index) => <Link key={index} to={item.uri} onClick= {()=>this.onMenuClicked(item)} className={item.selected?'active':''}>{item.label}</Link> )}
+            { menuItems.map((item,index) => <NavLink exact key={index} to={item.uri} onClick= {()=>this.onMenuClicked(item)} className="ripple">{item.label}</NavLink> )}
             </nav>  
         );
 
