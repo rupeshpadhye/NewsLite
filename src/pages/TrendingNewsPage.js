@@ -70,6 +70,7 @@ class TrendingNewsPage extends Component {
             news={data}
             onNewsClicked={this.handleNewsSelected}
             loadNextPage={this.handleLoadNextPage}
+            rowClass="row"
           />
         )
 

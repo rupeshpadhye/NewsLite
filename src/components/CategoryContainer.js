@@ -58,6 +58,7 @@ class CategoryContainer extends Component {
                 news={data}
                 onNewsClicked={this.handleNewsSelected}
                 loadNextPage={this.handleLoadNextPage}
+                rowClass="card"
             /> 
         </React.Fragment>    
         )

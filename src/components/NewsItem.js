@@ -1,14 +1,16 @@
 import React from "react";
-
+import {parse, distanceInWordsToNow} from 'date-fns'
 
 const NewsItem = (props) =>  ( 
-        <a  className="card" target='_blank' href={props.url} >
+        <a  className={props.rowClass} target='_blank' href={props.url} >
+               
+                <div className="content-placeholder">
+                <span className="date-holder">{distanceInWordsToNow(parse(props.publishedAt))} ago  </span> 
+                <div className="news_header">{props.description}</div>
+                    <span className="date-holder"> {props.source.name} </span> 
+                </div>
                 <div className="image-placeholder">
                     <img alt={props.description} src={props.urlToImage} width="100%" height="100%" />
-                </div>
-                <div className="content-placeholder">
-                <div className="news_header">{props.description}</div>
-                    <span className="date-holder">{props.publishedAt}</span>
                 </div>
         </a>
 );
