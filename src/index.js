@@ -6,6 +6,7 @@ import {store,persistor} from './store';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import NewsFeeder from './NewsFeeder';
+import 'typeface-roboto';
 
 const target = document.querySelector('#root');
 render(

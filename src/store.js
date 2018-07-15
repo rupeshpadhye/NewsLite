@@ -8,7 +8,7 @@ import rootReducer from './reducers';
 export const history = createHistory();
 
 const initialState = {};
-const enhancers = [window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()];
+const enhancers = [];
 const middleware = [thunk];
 
 
