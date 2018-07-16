@@ -43,7 +43,7 @@ class NewsFeeder extends Component {
         return (
           <Router  history={history}>        
           <main className="newsfeeder">
-            <NewsFeederHeader header='News'>
+            <NewsFeederHeader header='News Lite'>
                 <NewsFeedSettingIcon  onIconClicked ={this.handleIconClicked} shouldHide={false} icon='settings' ></NewsFeedSettingIcon >
             </NewsFeederHeader>
             <NewsMenuBar items= {newsMode} onMenuSelected={this.handleMenuSelected} />
