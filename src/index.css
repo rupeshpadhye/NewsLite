@@ -60,6 +60,7 @@ header {
   word-wrap: break-word;
   overflow: hidden;
   max-height: 3.6em;
+  text-transform: capitalize;
 }
 
 
@@ -227,7 +228,6 @@ nav {
 }
 
 .date-holder {
-  font-weight: 200;
   font-size: smaller;
 }
 
@@ -329,4 +329,33 @@ nav {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
+}
+
+.category-group {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row ;
+  flex-wrap:wrap;
+  justify-content: space-around;
+}
+
+.category-card {
+
+  box-shadow: 0 4px 5px 0 rgb(169,169,169,0.14), 0 2px 9px 1px rgba(169,169,169, 0.12),
+  0 4px 2px -2px rgba(169,169,169, 0.2);
+  background: white;
+  color: #6586fc;
+  padding: 5px;
+  width: 200px;
+  height: 20vh;
+  margin-top: 20px;
+  flex: 25%;
+  font-size: 17px;
+  line-height: 150px;
+  text-align: center;
+  margin: 5px;
+  cursor: pointer;
+  text-decoration: none;
 }

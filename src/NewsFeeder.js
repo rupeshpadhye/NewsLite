@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { Router as Router, Route  } from 'react-router-dom';
+import { Router as Router, Route ,Switch } from 'react-router-dom';
+import SwipeableRoutes  from "react-swipeable-routes";
+import {history} from "./store";
 import NewsFeederHeader from "./components/NewsFeederHeader";
 import NewsFeedSettingIcon from "./components/NewsFeedSettingIcon";
 import NewsMenuBar from "./components/NewsMenuBar";
 import NewsDetailPage from './pages/NewsDetailPage';
-import NewsByCategoryPage from './pages/NewsByCategoryPage';
+import CategoryNewsPage from './pages/CategoryNewsPage';
 import TrendingNewsPage from './pages/TrendingNewsPage';
-import {history} from "./store";
-import SwipeableRoutes  from "react-swipeable-routes";
+import Home from './pages/Home';
 
 class NewsFeeder extends Component {
     constructor(props) {
@@ -26,33 +27,15 @@ class NewsFeeder extends Component {
 
 
     render() {
-      const newsMode = [
-        {
-          label: "Trending",
-          uri: "/",
-          selected:true
-        },
-        {
-          label: "Category",
-          uri: "/category",
-          selected:false
-        },
-      ];
-
-
+     
         return (
           <Router  history={history}>        
-          <main className="newsfeeder">
-            <NewsFeederHeader header='News Lite'>
-                <NewsFeedSettingIcon  onIconClicked ={this.handleIconClicked} shouldHide={false} icon='settings' ></NewsFeedSettingIcon >
-            </NewsFeederHeader>
-            <NewsMenuBar items= {newsMode} onMenuSelected={this.handleMenuSelected} />
-            <SwipeableRoutes>
-                    <Route exact path="/" component={TrendingNewsPage} />
-                    <Route  path="/category" component={NewsByCategoryPage}/>
-                  
-             </SwipeableRoutes>         
-          </main>
+          <Switch className="newsfeeder">
+            <Route exact path="/category/:category" component={CategoryNewsPage}/> 
+            <Route  path="/" component={Home} />
+          </Switch>
+          
+           
           </Router>    
         )
 

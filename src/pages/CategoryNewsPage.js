@@ -8,6 +8,11 @@ import withLoadingList from "../hoc/withLoadingList";
 import isContainer from "../hoc/isContainer";
 import isList from "../hoc/isList";
 import  NewsItem  from "../components/NewsItem";
+import NewsFeederHeader from "../components//NewsFeederHeader";
+import HeaderTitle from "../components/HeaderTitle";
+import NewsFeedSettingIcon from "../components//NewsFeedSettingIcon";
+import withNetworkStateListener from "../hoc/withNetworkStateListener";
+
 
 
 class CategoryContainer extends Component {
@@ -16,27 +21,17 @@ class CategoryContainer extends Component {
 
     
     componentDidMount() {
-      const {language,country,category,uri,page} = this.props;
-      this.props.fetchNews(language,country,category,uri,page);
+      const {language,country,uri,page} = this.props;
+      this.props.fetchNews(language,country,this.props.match.params.category,uri,page);
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        const {news,category} = nextProps;
-        const {news:prevNews,category:prevCategory,loading} = this.props;
-        if( news[category].length !== prevNews[prevCategory].length ||  loading) {
-            return true;
-        } 
-        return false;
-      
-    }
-
+ 
     componentDidUpdate(prevProps) {
      const {language:prevLanguage,country:prevCountry,category:prevCategory,uri:prevUri,page:prevPage} = prevProps;
-     const {language,country,category,uri,page} = this.props;
-
+     const {language,country,uri,page} = this.props;
+     const  category = this.props.match.params.category;
       if (prevLanguage !== language 
         || prevCountry !==  country 
-        || prevCategory !== category
         || prevUri !== uri
         || prevPage !== page
       ) {
@@ -47,20 +42,22 @@ class CategoryContainer extends Component {
     
     render() {
       const {loading,news} = this.props;
-      const data = news[this.props.category];
-      console.log('render');
+      const data = news[this.props.match.params.category];
         return (
-        <React.Fragment>
-            <div className="category-title">{this.props.title}</div>
+          <React.Fragment>
+                <NewsFeederHeader>
+                    <NewsFeedSettingIcon  goTo="/category" shouldHide={false} icon='keyboard_backspace' ></NewsFeedSettingIcon >
+                    <HeaderTitle header={this.props.match.params.category} />  
+                </NewsFeederHeader>
             <InfiniteScrollList 
                 placeholders={5} 
                 loading={loading}
                 news={data}
                 onNewsClicked={this.handleNewsSelected}
                 loadNextPage={this.handleLoadNextPage}
-                rowClass="card"
+                rowClass="row"
             /> 
-        </React.Fragment>    
+          </React.Fragment>
         )
 
     }
@@ -78,19 +75,16 @@ class CategoryContainer extends Component {
 
   const mapDispatchToProps = dispatch => bindActionCreators({
     fetchNews,
-    countryChangedTo,
-    languageChangedTo,
-    categoryChangeTo,
-    newsModeChagedTo,
     incrementPage,
 },dispatch);
 
   
 const InfiniteScrollList = compose(
-  isContainer('category-container'),
+  withNetworkStateListener,
+  isContainer('container'),
   withLoadMore,
   withLoadingList,
-  isList('horizontal'),
+  isList('vertical'),
 )(NewsItem);
 
 export default connect(
