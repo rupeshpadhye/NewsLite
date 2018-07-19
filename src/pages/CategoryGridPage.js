@@ -3,12 +3,12 @@ import { compose } from 'redux'
 import isContainer from "../hoc/isContainer";
 import {categories} from "../util";
 import {Link,Route}  from 'react-router-dom';
-
+import { fadeIn } from 'react-animations'
 //<CategoryContainer title ={category.name} category={category.category} key={index}/>
 const CategoryList = () => {
   return (
     <div className="category-group">
-      { categories.map((category,index) => <a  key={category.name} href={`/category/${category.category}`} className="category-card">{category.name}</a>)  }  
+      { categories.map((category,index) => <a  key={category.name} href={`/category/${category.category}`} className={`category-card ${category.category}`}>{category.name}</a>)  }  
     </div>
   )
 }

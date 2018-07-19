@@ -32,7 +32,6 @@ body {
 }
 /* header */
 header {
-  width: 100%;
   height: 48px;
   color: #fff;
   background: linear-gradient(315deg, #a151ed, #6586fc);
@@ -74,6 +73,7 @@ nav {
   font-size: 16px;
   box-shadow: 0 4px 5px 0 rgb(169,169,169,0.14), 0 2px 9px 1px rgba(169,169,169, 0.12),
     0 4px 2px -2px rgba(169,169,169, 0.2);
+   border-bottom: 1px solid #ccc; 
 }
 
  nav  {
@@ -128,12 +128,20 @@ nav {
  -webkit-tap-highlight-color: transparent;
 }
 
-
+.without-nav-container
+{
+  overflow-y: auto;
+  height: -moz-calc(95vh - (20px));
+  height: -webkit-calc(95vh- (20px));
+  height: calc(95vh - (20px));
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+ }
 
 .vertical {
   display: flex;
   flex-direction: column;
-  padding-top: 4px;
+  padding-top: 1px;
 }
 
 .horizontal {
@@ -346,16 +354,54 @@ nav {
   box-shadow: 0 4px 5px 0 rgb(169,169,169,0.14), 0 2px 9px 1px rgba(169,169,169, 0.12),
   0 4px 2px -2px rgba(169,169,169, 0.2);
   background: white;
-  color: #6586fc;
   padding: 5px;
   width: 200px;
-  height: 20vh;
+  height: 18vh;
   margin-top: 20px;
-  flex: 25%;
+  flex: 40%;
   font-size: 17px;
   line-height: 150px;
   text-align: center;
-  margin: 5px;
+  margin: 2px;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  color: white;
 }
+
+.business {
+ background: linear-gradient(right top,#752E25,transparent),url("./images/business.jpg");
+ background-size: 100% 100%;
+}
+
+.entertainment {
+  background: linear-gradient(to bottom,mistyrose,transparent),url("./images/entertainment.jpg");
+  background-size: 100% 100%;
+  
+ }
+
+ .health {
+  background: linear-gradient(to top,#8F5049,transparent),url("./images/health.jpg");
+  background-size: 100% 100%;
+ }
+
+ .sports {
+  background: linear-gradient(to left,#56EB84,transparent),url("./images/sports.jpg");
+  background-size: 100% 100%;
+ }
+
+ .science {
+  background: linear-gradient(to left,#969CE0,transparent),url("./images/science.jpg");
+  background-size: 100% 100%;
+ }
+
+ .general {
+  background: linear-gradient(to left,#0C3460,transparent),url("./images/general.jpg");
+  background-size: 100% 100%;
+ }
+
+ .technology {
+  background: linear-gradient(to top,#6586fc,transparent),url("./images/technology.jpg");
+  background-size: 100% 100%;
+ }

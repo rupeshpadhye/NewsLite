@@ -81,7 +81,7 @@ class CategoryContainer extends Component {
   
 const InfiniteScrollList = compose(
   withNetworkStateListener,
-  isContainer('container'),
+  isContainer('without-nav-container'),
   withLoadMore,
   withLoadingList,
   isList('vertical'),

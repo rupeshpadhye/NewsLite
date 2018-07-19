@@ -18,7 +18,7 @@ class Home extends Component {
         const newsMode = [
             {
               label: "Trending",
-              uri: "/",
+              uri: "/trending",
               selected:true
             },
             {
@@ -31,7 +31,7 @@ class Home extends Component {
             <React.Fragment>
                     <NewsFeederHeader>
                         <HeaderTitle header="News Lite" />  
-                        <NewsFeedSettingIcon  goTo="/settings" shouldHide={false} icon='settings' ></NewsFeedSettingIcon >
+                        <NewsFeedSettingIcon  goTo="/settings" shouldHide={false} icon='settings' classNames="pointer" ></NewsFeedSettingIcon >
                     </NewsFeederHeader>
                     <NewsMenuBar items= {newsMode} onMenuSelected={this.handleMenuSelected} />
                             <SwipeableRoutes history={history}>

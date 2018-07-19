@@ -5,10 +5,10 @@ import {history} from "./store";
 import NewsFeederHeader from "./components/NewsFeederHeader";
 import NewsFeedSettingIcon from "./components/NewsFeedSettingIcon";
 import NewsMenuBar from "./components/NewsMenuBar";
-import NewsDetailPage from './pages/NewsDetailPage';
 import CategoryNewsPage from './pages/CategoryNewsPage';
 import TrendingNewsPage from './pages/TrendingNewsPage';
 import Home from './pages/Home';
+import SettingsPage from "./pages/SettingsPage";
 
 class NewsFeeder extends Component {
     constructor(props) {
@@ -32,6 +32,7 @@ class NewsFeeder extends Component {
           <Router  history={history}>        
           <Switch className="newsfeeder">
             <Route exact path="/category/:category" component={CategoryNewsPage}/> 
+            <Route exact path="/settings" component={SettingsPage}/> 
             <Route  path="/" component={Home} />
           </Switch>
           
