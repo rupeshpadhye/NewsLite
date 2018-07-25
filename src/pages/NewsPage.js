@@ -10,25 +10,43 @@ import withNetworkStateListener from "../hoc/withNetworkStateListener";
 import isContainer from "../hoc/isContainer";
 import isList from "../hoc/isList";
 import  NewsItem  from "../components/NewsItem";
+import NewsFeederHeader from "../components//NewsFeederHeader";
+import HeaderTitle from "../components/HeaderTitle";
+import NewsFeedSettingIcon from "../components//NewsFeedSettingIcon";
 
 
 
-class TrendingNewsPage extends Component {
+class NewsPage extends Component {
   
+     getCategory() {
+        if(this.props.category) {
+         return this.props.category;
+       }
+       else if(this.props.match && this.props.match.params.category) {
+         return this.props.match.params.category;
+       }
+       else {
+        return 'trending';
+       }
+
+     }
+
+    
     componentDidMount() {
       const {language,country,uri,page} = this.props;
-      const category = (this.props.match.params.category!== undefined) ? this.props.match.params.category:'trending';
+      const category = this.getCategory();
       this.props.fetchNews(language,country,category,uri,page);
     }
 
     componentDidUpdate(prevProps) {
-     const {language:prevLanguage,country:prevCountry,uri:prevUri,page:prevPage} = prevProps;
+     const {language:prevLanguage,country:prevCountry,uri:prevUri,page:prevPage,category:prevCategory} = prevProps;
      const {language,country,uri,page} = this.props;
-     const category = (this.props.match.params.category!== undefined) ? this.props.match.params.category:'trending';
+     const category = this.getCategory();
       if (prevLanguage !== language 
         || prevCountry !==  country 
         || prevUri !== uri
         || prevPage !== page
+        || prevCategory !== category
       ) {
          this.props.fetchNews(language,country,category,uri,page);
       }
@@ -37,17 +55,20 @@ class TrendingNewsPage extends Component {
     
     render() {
       const {loading, error, language, country,news} = this.props;
-      const category = (this.props.match.params.category!== undefined) ? this.props.match.params.category:'trending';
+      const category = this.getCategory();
       const data = news[category];
+      const rowClass = this.props.rowClass ? this.props.rowClass : 'row'
         return (
-          <InfiniteScrollList 
-            placeholders={5} 
-            loading={loading}
-            news={data}
-            onNewsClicked={this.handleNewsSelected}
-            loadNextPage={this.handleLoadNextPage}
-            rowClass="row"
-          />
+          <React.Fragment>
+            <InfiniteScrollList 
+              placeholders={5} 
+              loading={loading}
+              news={data}
+              onNewsClicked={this.handleNewsSelected}
+              loadNextPage={this.props.incrementPage}
+              rowClass={rowClass}
+            />
+          </React.Fragment> 
         )
 
     }
@@ -61,14 +82,13 @@ class TrendingNewsPage extends Component {
     country:state.news_feeder.params.country,
     uri:state.news_feeder.params.uri,
     page:state.news_feeder.params.page,
-    category:state.news_feeder.params.category,
+    category:state.news_feeder.params.category
   });
 
   const mapDispatchToProps = dispatch => bindActionCreators({
     fetchNews,
     countryChangedTo,
     languageChangedTo,
-    categoryChangeTo,
     newsModeChagedTo,
     incrementPage,
 },dispatch);
@@ -85,5 +105,5 @@ const InfiniteScrollList = compose(
 export default connect(
   mapStateToProps ,
   mapDispatchToProps
-  )(TrendingNewsPage) ;
+  )(NewsPage) ;
   

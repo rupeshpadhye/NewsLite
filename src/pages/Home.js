@@ -4,40 +4,77 @@ import HeaderTitle from "../components/HeaderTitle";
 import NewsFeedSettingIcon from "../components/NewsFeedSettingIcon";
 import NewsMenuBar from "../components//NewsMenuBar"; 
 import SwipeableRoutes  from "react-swipeable-routes";
-import { Router as Router, Route  } from 'react-router-dom';
+import { Route  } from 'react-router-dom';
 import CategoryGridPage from './CategoryGridPage';
-import TrendingNewsPage from './TrendingNewsPage';
+import NewsPage from './NewsPage';
 import {history} from "../store";
+import Media from "react-media";
+import CategoryList from '../components/CategoryList';
+import { categoryChangeTo } from "../reducers/news_feeder";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+
+
+const newsMode = [
+    {
+      label: "Trending",
+      uri: "/trending",
+      selected:true
+    },
+    {
+      label: "Category",
+      uri: "/category",
+      selected:false
+    },
+  ];
+
+
+const MobileView = (props) => (
+  <React.Fragment>
+       <NewsMenuBar items= {newsMode}  />
+        <SwipeableRoutes history={history}>
+              <Route from="/" path="/trending" component={NewsPage} />
+              <Route  path="/category" component={CategoryGridPage}/>
+        </SwipeableRoutes>
+  </React.Fragment>
+);
+
+
+const DesktopView = (props) => (
+    <React.Fragment>
+    <div  className="desktop-container">
+    <div className="category-box">
+         <CategoryList onCategoryClicked={(category)=>{props.categoryChangeTo(category)}}></CategoryList>
+    </div>
+    <div className="news-area">
+        <NewsPage category={props.category} {...props}/>
+    </div>
+    </div>
+    <div className="powered-by"> Powered by NewsAPI.org</div>
+    </React.Fragment>
+);
 
 class Home extends Component {
 
-    handleMenuSelected(selectedMenu) {
-
-    }
+  
     render() {
-        const newsMode = [
-            {
-              label: "Trending",
-              uri: "/trending",
-              selected:true
-            },
-            {
-              label: "Category",
-              uri: "/category",
-              selected:false
-            },
-          ];
+      
         return (
             <React.Fragment>
                     <NewsFeederHeader>
                         <HeaderTitle header="News Lite" />  
                         <NewsFeedSettingIcon  goTo="/settings" shouldHide={false} icon='settings' classNames="pointer" ></NewsFeedSettingIcon >
                     </NewsFeederHeader>
-                    <NewsMenuBar items= {newsMode} onMenuSelected={this.handleMenuSelected} />
-                            <SwipeableRoutes history={history}>
-                                <Route from="/" path="/trending" component={TrendingNewsPage} />
-                                <Route  path="/category" component={CategoryGridPage}/>
-                        </SwipeableRoutes>  
+                    <Media query="(max-width: 768px)">
+                            {matches =>
+                                matches ? (
+                                  <MobileView />
+                                ) : (
+                                  <DesktopView  category= {this.props.category} categoryChangeTo= {this.props.categoryChangeTo} rowClass="card"/>
+                                )
+                            }
+                    </Media>
+                     
        
             </React.Fragment>
         )
@@ -45,7 +82,19 @@ class Home extends Component {
 }
 
 
-export default Home ;
+const mapStateToProps = state => ({
+    category:state.news_feeder.params.category,
+  });
+
+  const mapDispatchToProps = dispatch => bindActionCreators({
+    categoryChangeTo,
+},dispatch);
+
+export default connect(
+    mapStateToProps ,
+    mapDispatchToProps
+    )(Home) ;
+
 
 
 

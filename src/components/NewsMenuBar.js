@@ -16,7 +16,6 @@ class NewsMenuBar extends Component {
                     return item;
         }) ;
       this.setState({menuItems});
-      this.props.onMenuSelected(selectedMenu);
     };
 
     render() {

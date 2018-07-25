@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-const ShowLoadMore = (props) => (props.newsSize >0 && !props.loading && <div onClick={()=> props.loadNextPage()} className="load-more" >Load More</div>);
+const ShowLoadMore = (props) => (props.newsSize >0 && !props.loading && <div onClick={()=> props.loadNextPage()} className="load-more" >Load More)</div>);
 
 const withLoadMore = (Component) =>
  class withLoadMore extends React.Component {
@@ -35,7 +35,7 @@ const withLoadMore = (Component) =>
       };
       
       onScroll (event) {
-        console.log(event.view.innerHeight,event.view.scrollY,document.body.offsetHeight)
+       
         if (
             (event.view.innerHeight + event.view.scrollY) >= (document.body.offsetHeight - 500) &&
             this.props.news.length

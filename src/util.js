@@ -296,32 +296,44 @@ export const countryOptions = [
 
 export const categories = [
   {
+    category: "trending",
+    name: "trending",
+    default:false
+  },
+  {
     category: "business",
-    name: "Business"
+    name: "Business",
+    default:true
   },
   {
     category: "entertainment",
-    name: "Entertainment"
+    name: "Entertainment",
+    default:true
   },
   {
     category: "general",
-    name: "General"
+    name: "General",
+    default:true
   },
   {
     category: "health",
-    name: "Health"
+    name: "Health",
+    default:true
   },
   {
     category: "science",
-    name: "Science"
+    name: "Science",
+    default:true
   },
   {
     category: "sports",
-    name: "Sports"
+    name: "Sports",
+    default:true
   },
   {
     category: "technology",
-    name: "Technology"
+    name: "Technology",
+    default:true
   }
 ];
 

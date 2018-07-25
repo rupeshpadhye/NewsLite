@@ -73,24 +73,48 @@ nav {
   font-size: 16px;
   box-shadow: 0 4px 5px 0 rgb(169,169,169,0.14), 0 2px 9px 1px rgba(169,169,169, 0.12),
     0 4px 2px -2px rgba(169,169,169, 0.2);
-   border-bottom: 1px solid #ccc; 
+  
 }
 
- nav  {
-   text-align: center;
-   display: flex;
-   flex-direction: row;
-   width: 100%;
-   height: 48px;
-   justify-content: space-around;
-   z-index: 1000;
- }
-  nav > a {
-    padding: 8px;
-    font-weight: 400;
-    flex:1;
-    text-decoration: none;
+  @media only screen and  (max-width: 678px)  {
+      nav  {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 48px;
+        justify-content: space-around;
+        z-index: 1000;
+        border-bottom: 1px solid #ccc; 
+      }
+        nav > a {
+          padding: 8px;
+          font-weight: 400;
+          flex:1;
+          text-decoration: none;
+        }
   }
+
+
+  /*@media only screen and  (min-width: 678px)  {
+    nav  {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      width: 20vw;
+      height: 100vh;
+      z-index: 1000;
+      border-bottom: 2px solid #ccc; 
+    }
+      nav > a {
+        padding: 12px;
+        font-weight: 400;
+        text-decoration: none;
+    }
+  
+}
+*/
+
 
   nav a:hover {
     cursor: pointer;
@@ -136,6 +160,11 @@ nav {
   height: calc(95vh - (20px));
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+ }
+
+ .desktop-container {
+    display: flex;
+    flex-direction: row;
  }
 
 .vertical {
@@ -404,4 +433,46 @@ nav {
  .technology {
   background: linear-gradient(to top,#6586fc,transparent),url("./images/technology.jpg");
   background-size: 100% 100%;
+ }
+
+ .trending {
+  background: linear-gradient(to bottom,transparent,#6586fc),url("./images/trending.jpg");
+  background-size: 100% 100%;
+ }
+ .news-area {
+   width: 60vw;
+ }
+
+ .category-box{
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+ }
+
+ .desk-category-card {
+  box-shadow: 0 4px 5px 0 rgb(169,169,169,0.14), 0 2px 9px 1px rgba(169,169,169, 0.12),
+  0 4px 2px -2px rgba(169,169,169, 0.2);
+  background: white;
+  padding: 5px;
+  width: 200px;
+  height: 18vh;
+  margin-top: 20px;
+  flex: 40%;
+  font-size: 17px;
+  line-height: 150px;
+  text-align: center;
+  margin: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  color: white;
+ }
+
+ .powered-by {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6586fc;
+  font-size: x-small;
  }

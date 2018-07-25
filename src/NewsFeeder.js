@@ -6,9 +6,10 @@ import NewsFeederHeader from "./components/NewsFeederHeader";
 import NewsFeedSettingIcon from "./components/NewsFeedSettingIcon";
 import NewsMenuBar from "./components/NewsMenuBar";
 import CategoryNewsPage from './pages/CategoryNewsPage';
-import TrendingNewsPage from './pages/TrendingNewsPage';
 import Home from './pages/Home';
 import SettingsPage from "./pages/SettingsPage";
+
+
 
 class NewsFeeder extends Component {
     constructor(props) {
