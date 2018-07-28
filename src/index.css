@@ -476,3 +476,9 @@ nav {
   color: #6586fc;
   font-size: x-small;
  }
+
+ .about {
+  padding: 0px 16px 16px 8px;
+  height: 95vh;
+  overflow-y: scroll;
+ }

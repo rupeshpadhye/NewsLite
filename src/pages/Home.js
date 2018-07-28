@@ -63,7 +63,7 @@ class Home extends Component {
             <React.Fragment>
                     <NewsFeederHeader>
                         <HeaderTitle header="News Lite" />  
-                        <NewsFeedSettingIcon  goTo="/settings" shouldHide={false} icon='settings' classNames="pointer" ></NewsFeedSettingIcon >
+                        <NewsFeedSettingIcon  goTo="/settings" shouldHide={false} icon='info' classNames="pointer" ></NewsFeedSettingIcon >
                     </NewsFeederHeader>
                     <Media query="(max-width: 768px)">
                             {matches =>
