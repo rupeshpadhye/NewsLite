@@ -18,7 +18,7 @@ import { connect } from "react-redux";
 const newsMode = [
     {
       label: "Trending",
-      uri: "/trending",
+      uri: "/",
       selected:true
     },
     {
@@ -33,8 +33,8 @@ const MobileView = (props) => (
   <React.Fragment>
        <NewsMenuBar items= {newsMode}  />
         <SwipeableRoutes history={history}>
-              <Route from="/" path="/trending" component={NewsPage} />
-              <Route  path="/category" component={CategoryGridPage}/>
+              <Route path="/" component={NewsPage} category="trending" />
+              <Route path="/category" component={CategoryGridPage}/>
         </SwipeableRoutes>
   </React.Fragment>
 );

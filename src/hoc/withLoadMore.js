@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-const ShowLoadMore = (props) => (props.newsSize >0 && !props.loading && <div onClick={()=> props.loadNextPage()} className="load-more" >Load More)</div>);
+const ShowLoadMore = (props) => (props.newsSize >0 && !props.loading && <div onClick={()=> props.loadNextPage()} className="load-more" >Load More</div>);
 
 const withLoadMore = (Component) =>
  class withLoadMore extends React.Component {
