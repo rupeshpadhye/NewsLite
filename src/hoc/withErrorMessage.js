@@ -5,6 +5,7 @@ const withErrorMessage = (Component)=> {
         render() {
            return  <Component {...this.props}>
                         { this.props.error && <div>{this.props.error}</div>}
+                        {this.props.children}
                    </Component>
            
         };

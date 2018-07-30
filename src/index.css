@@ -274,13 +274,15 @@ nav {
 
 .load-more {
   display: flex;
-  min-height: 10vh;
-  min-width: 20vw;
+  background: #6586fc;
+  min-height: 5vh;
+  width: 10vw;
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  color: red;
-  font-size: small;
+  align-self: center;
+  color: white;
+  font-size: medium;
 }
 
 .category-container {
@@ -473,8 +475,8 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: red;
-  padding: 10px;
+  color: #6586fc;
+  font-size: x-small;
  }
 
 

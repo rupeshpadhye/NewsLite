@@ -18,6 +18,9 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ![Responsive Screen](assets/responsive.PNG)
 
+
+### [News Lite Live](https://newslite-487ec.firebaseapp.com/)
+
 ## Build Setup
 ``` bash
 # Add API Key from  newsapi.org in .env.development file
