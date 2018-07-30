@@ -13,7 +13,7 @@ import CategoryList from '../components/CategoryList';
 import { categoryChangeTo } from "../reducers/news_feeder";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-
+import {categories} from "../util";
 
 const newsMode = [
     {
@@ -44,7 +44,7 @@ const DesktopView = (props) => (
     <React.Fragment>
     <div  className="desktop-container">
     <div className="category-box">
-         <CategoryList onCategoryClicked={(category)=>{props.categoryChangeTo(category)}}></CategoryList>
+         <CategoryList categories={categories} onCategoryClicked={(category)=>{props.categoryChangeTo(category)}}></CategoryList>
     </div>
     <div className="news-area">
         <NewsPage category={props.category} {...props}/>

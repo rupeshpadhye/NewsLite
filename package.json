@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "date-fns": "^1.29.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "history": "^4.7.2",
     "material-icons-react": "^1.0.0",
+    "prop-types": "^15.6.2",
     "radium": "^0.24.0",
     "react": "^16.3.2",
     "react-animations": "^1.0.0",
@@ -16,11 +19,13 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "react-swipeable-routes": "^0.4.1",
+    "react-test-renderer": "^16.4.1",
     "redux": "^4.0.0",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.3.1",
     "semantic-ui-react": "^0.80.0",
+    "sinon": "^6.1.4",
     "typeface-roboto": "^0.0.54"
   },
   "scripts": {
