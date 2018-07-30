@@ -81,8 +81,7 @@ class NewsPage extends Component {
     language:state.news_feeder.params.language,
     country:state.news_feeder.params.country,
     uri:state.news_feeder.params.uri,
-    page:state.news_feeder.params.page,
-    category:state.news_feeder.params.category
+    page:state.news_feeder.params.page
   });
 
   const mapDispatchToProps = dispatch => bindActionCreators({
