@@ -1,14 +1,12 @@
 {
-  "name": "scambble",
+  "name": "news-lite",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "date-fns": "^1.29.0",
     "history": "^4.7.2",
     "material-icons-react": "^1.0.0",
-    "radium": "^0.24.0",
     "react": "^16.3.2",
-    "react-animations": "^1.0.0",
     "react-dom": "^16.3.2",
     "react-media": "^1.8.0",
     "react-redux": "^5.0.7",
@@ -19,8 +17,6 @@
     "redux": "^4.0.0",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.2.0",
-    "semantic-ui-css": "^2.3.1",
-    "semantic-ui-react": "^0.80.0",
     "typeface-roboto": "^0.0.54"
   },
   "scripts": {

@@ -6,6 +6,7 @@ import { compose } from 'redux'
 import { fetchNews ,languageChangedTo,countryChangedTo,categoryChangeTo,newsModeChagedTo,incrementPage } from "../reducers/news_feeder";
 import withLoadMore from "../hoc/withLoadMore";
 import withLoadingList from "../hoc/withLoadingList";
+import withErrorMessage from "../hoc/withErrorMessage";
 import withNetworkStateListener from "../hoc/withNetworkStateListener";
 import isContainer from "../hoc/isContainer";
 import isList from "../hoc/isList";
@@ -67,6 +68,7 @@ class NewsPage extends Component {
               onNewsClicked={this.handleNewsSelected}
               loadNextPage={this.props.incrementPage}
               rowClass={rowClass}
+              error={error}
             />
           </React.Fragment> 
         )
@@ -98,6 +100,7 @@ const InfiniteScrollList = compose(
   isContainer('container'),
   withLoadingList,
   withLoadMore,
+  withErrorMessage,
   isList('vertical'),
 )(NewsItem);
 

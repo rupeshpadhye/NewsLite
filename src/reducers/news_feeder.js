@@ -151,7 +151,7 @@ export const fetchNewsSuccess = (articles,category) => {
 
 export const fetchNewsFailure = error => ({
   type: LOAD_NEWS_FAILURE,
-  error
+  error:error.message
 });
 
 
@@ -188,8 +188,8 @@ export const buileQuery = (
 };
 
 export const handleErrors = response => {
-  if (response.status === "error") {
-    throw Error(response.message);
+  if (response.status !== 200) {
+    throw Error(response.statusText||response.message);
   }
   return response;
 };
