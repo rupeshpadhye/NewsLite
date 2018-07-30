@@ -16,6 +16,7 @@ return (
      { props.categories.map((category,index) => <CategoryItem  key={category.name} {...category} onCategoryClicked= {props.onCategoryClicked}  /> )  }
     </div> 
 ) 
+
 };
 
 CategoryList.propTypes = {

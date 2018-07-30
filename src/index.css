@@ -274,13 +274,15 @@ nav {
 
 .load-more {
   display: flex;
-  min-height: 10vh;
-  min-width: 20vw;
+  background: #6586fc;
+  min-height: 5vh;
+  width: 10vw;
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  color: red;
-  font-size: small;
+  align-self: center;
+  color: white;
+  font-size: medium;
 }
 
 .category-container {
@@ -477,8 +479,16 @@ nav {
   font-size: x-small;
  }
 
+
+ .category-group  a:hover  {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
  .about {
   padding: 0px 16px 16px 8px;
   height: 95vh;
   overflow-y: scroll;
  }
+
