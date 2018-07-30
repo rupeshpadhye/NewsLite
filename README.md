@@ -14,6 +14,10 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ![Home Screen](assets/trending.png)
 
+![Home Screen](assets/categories.PNG)
+
+![Responsive Screen](assets/responsive.PNG)
+
 ## Build Setup
 ``` bash
 # Add API Key from  newsapi.org in .env.development file
