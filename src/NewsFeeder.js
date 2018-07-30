@@ -36,8 +36,6 @@ class NewsFeeder extends Component {
             <Route exact path="/settings" component={SettingsPage}/> 
             <Route  path="/" component={Home} />
           </Switch>
-          
-           
           </Router>    
         )
 
