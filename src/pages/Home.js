@@ -65,7 +65,7 @@ class Home extends Component {
                         <HeaderTitle header="News Lite" />  
                         <NewsFeedSettingIcon  goTo="/settings" shouldHide={false} icon='settings' classNames="pointer" ></NewsFeedSettingIcon >
                     </NewsFeederHeader>
-                    <Media query="(max-width: 768px)">
+                    <Media query="(max-width: 767px)">
                             {matches =>
                                 matches ? (
                                   <MobileView />
