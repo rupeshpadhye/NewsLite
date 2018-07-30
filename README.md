@@ -1,15 +1,6 @@
 # News Lite(PWA)
  > This is an example of a PWA built using React
 
-
-##The data is powered by NewsAPI.org
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
-
 #### Screen Shots 
 
 ![Home Screen](assets/trending.png)
@@ -20,6 +11,14 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 
 ### [News Lite Live](https://newslite-487ec.firebaseapp.com/)
+
+## The data is powered by NewsAPI.org
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+Below you will find some information on how to perform common tasks.<br>
+You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
 
 ## Build Setup
 ``` bash
