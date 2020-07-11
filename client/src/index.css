@@ -490,5 +490,9 @@ nav {
   padding: 0px 16px 16px 8px;
   height: 95vh;
   overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
  }
 

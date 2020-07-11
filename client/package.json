@@ -1,0 +1,39 @@
+{
+  "name": "news-lite",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3001",
+  "dependencies": {
+    "D": "^1.0.0",
+    "date-fns": "^1.29.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "history": "^4.7.2",
+    "material-icons-react": "^1.0.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-media": "^1.8.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "react-swipeable-routes": "^0.4.1",
+    "react-test-renderer": "^16.4.1",
+    "redux": "^4.0.0",
+    "redux-mock-store": "^1.5.3",
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.2.0",
+    "typeface-roboto": "^0.0.54"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "sw-precache-webpack-plugin": "^0.11.5",
+    "webpack-pwa-manifest": "^3.6.2"
+  }
+}

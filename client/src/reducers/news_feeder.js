@@ -10,8 +10,8 @@ export const SET_NEWS_MODE = "news/mode";
 export const SET_NEXT_PAGE = "news/pages";
 export const REHYDRATE ="persist/REHYDRATE";
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-const API_BASE_URL =  process.env.REACT_APP_BASE_URL;
+//const API_KEY = process.env.REACT_APP_API_KEY;
+//const API_BASE_URL =  process.env.REACT_APP_BASE_URL;
 const defaultLanguage = "en";
 const defaultUri = "top-headlines";
 const defaultCountry = "wd";
@@ -176,7 +176,7 @@ export const buileQuery = (
   uri = defaultUri,
   page= defaultPage,
 ) => {
-  let NEWS_API_URL = `${API_BASE_URL}/${uri}?apiKey=${API_KEY}&language=${language}&page=${page}&pageSize=5`;
+  let NEWS_API_URL = `/api/${uri}?language=${language}&page=${page}&pageSize=5`;
   if (country !== "wd") {
     NEWS_API_URL = `${NEWS_API_URL}&country=${country}`;
   }

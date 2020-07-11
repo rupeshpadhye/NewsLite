@@ -6,16 +6,13 @@ import NewsFeedSettingIcon from "../components//NewsFeedSettingIcon";
 const InlineStyleObj = {
 
     image: {
-        'border-radius': '50%',
-        'text-align':'center',
+        borderRadius: '50%',
+        textAlign:'center',
     },
     imageblock: {
-        'display':'block',
-        'margin':'auto',
+        display:'block',
+        marginTop: '5px',
     },
-    margin: {
-        'margin': '5px'
-    }
 }
 
 
@@ -33,8 +30,8 @@ const SettingsPage = (props) => (
                 <h3>Rupesh Padhye (Developer)</h3>
             </div>
         <div>
-             <a className="margin" href="https://github.com/rupeshpadhye" target="_blank" rel="noopener">GitHub</a>
-             <a className="margin" href="https://www.linkedin.com/in/rupesh-padhye-16301417/" target="_blank" rel="noopener">Linkedin</a>
+             <a  href="https://github.com/rupeshpadhye" target="_blank" rel="noopener">GitHub</a>
+             <a  href="https://www.linkedin.com/in/rupesh-padhye-16301417/" target="_blank" rel="noopener">Linkedin</a>
         </div>
          </div>
     </React.Fragment>
