@@ -31,7 +31,7 @@ app.use(staticFiles)
 router.use('/api/*', (req, res, next) => {
   console.log(req.originalUrl, 'inside');
   proxy({
-    url: 'https://newsapi.org/v2' + '/*',
+    url: 'http://newsapi.org/v2' + '/*',
     query: {
       apiKey: process.env.apiKey || API_KEY
     },

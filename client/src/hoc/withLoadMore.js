@@ -12,7 +12,7 @@ const withLoadMore = (Component) =>
         this.state = {
             events: ['scroll', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll', 'resize', 'touchmove', 'touchend'],
           }
-        this.onScroll = this.onScroll.bind(this);
+        //this.onScroll = this.onScroll.bind(this);
       }
       componentDidMount() {
       /*  this.state.events.forEach((type) => {

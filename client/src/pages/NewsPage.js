@@ -11,9 +11,6 @@ import withNetworkStateListener from "../hoc/withNetworkStateListener";
 import isContainer from "../hoc/isContainer";
 import isList from "../hoc/isList";
 import  NewsItem  from "../components/NewsItem";
-import NewsFeederHeader from "../components//NewsFeederHeader";
-import HeaderTitle from "../components/HeaderTitle";
-import NewsFeedSettingIcon from "../components//NewsFeedSettingIcon";
 
 
 
@@ -43,11 +40,9 @@ class NewsPage extends Component {
      const {language:prevLanguage,country:prevCountry,uri:prevUri,page:prevPage,category:prevCategory} = prevProps;
      const {language,country,uri,page} = this.props;
      const category = this.getCategory();
-      if (prevLanguage !== language 
-        || prevCountry !==  country 
-        || prevUri !== uri
+      if ( prevUri !== uri
         || prevPage !== page
-        || prevCategory !== category
+        || prevCategory && prevCategory !== category
       ) {
          this.props.fetchNews(language,country,category,uri,page);
       }
@@ -55,7 +50,7 @@ class NewsPage extends Component {
 
     
     render() {
-      const {loading, error, language, country,news} = this.props;
+      const {loading, error,news} = this.props;
       const category = this.getCategory();
       const data = news[category];
       const rowClass = this.props.rowClass ? this.props.rowClass : 'row'
