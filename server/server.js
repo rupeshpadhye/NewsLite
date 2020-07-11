@@ -2,6 +2,7 @@ import bodyParser from 'body-parser'
 import express from 'express'
 import path from 'path'
 import proxy from 'express-request-proxy'
+import {API_KEY} from "@env"
 const app = express()
 
 
@@ -32,7 +33,7 @@ router.use('/api/*', (req, res, next) => {
   proxy({
     url: 'https://newsapi.org/v2' + '/*',
     query: {
-      apiKey: process.env.API_KEY
+      apiKey: process.env.apiKey || API_KEY
     },
     timeout: 60000,
     headers: {}
